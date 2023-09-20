@@ -113,10 +113,11 @@ inner join course
 on professor.p_email = course.p_email
 
 --Q2.10
-select p_name, count(*) as count_course
+select professor.p_name, 
+	count(course.c_name) as count_course
 from professor
 inner join course
 on professor.p_email = course.p_email
-group by p_name
+group by professor.p_name
 order by count_course desc
 limit 1;
